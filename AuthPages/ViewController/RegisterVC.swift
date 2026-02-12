@@ -75,6 +75,9 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersInRanges ranges: [NSValue], replacementString string: String) -> Bool {
+        if textField == userName{
+            return true
+        }
         if textField == password{
             if string.isEmpty{
                 return true

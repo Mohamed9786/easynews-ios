@@ -12,6 +12,7 @@ class NewsVC: UIViewController{
     var moreData = true
     var currentCategory = "Breaking News"
     @IBOutlet weak var failShow: UILabel!
+    let indianExpressRed = UIColor(red: 237/255, green: 28/255, blue: 36/255, alpha: 1.0)
     //let helper = newsCategory.shared
     //let userdefault = SecureVault.shared
     let category = ["Breaking News", "Business", "Technology", "Politics", "Sports"]
@@ -185,8 +186,8 @@ extension NewsVC: UICollectionViewDataSource, UICollectionViewDelegate{
         cell.contentView.isUserInteractionEnabled = false
         
         if categoryName == currentCategory {
-                cell.backgroundColor = .systemBlue
-                cell.label.textColor = .white
+            cell.backgroundColor = indianExpressRed
+            cell.label.textColor = .white
         } else {
             cell.backgroundColor = .systemGray6
             cell.label.textColor = .label

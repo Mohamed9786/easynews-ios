@@ -10,9 +10,9 @@ import Foundation
 class NewsService{
     static let shared = NewsService()
     private let sessionDelegate = PinnedSession()
-    private var session: URLSession!
+    var session: URLSession!
     
-    private init() {
+    init() {
         let configuration = URLSessionConfiguration.default
         self.session = URLSession(configuration: configuration,
                                   delegate: sessionDelegate,
@@ -34,7 +34,12 @@ class NewsService{
     
     func fetchApi(query: String, page: Int, completion: @escaping (Result<[Articles], Error>) -> Void){
         loadConfig()
-        let urlString = "\(BASE_URL)/hhheverything?q=\(query)&pageSize=15&page=\(page)&apiKey=\(API_KEY)"
+        let urlString: String
+        if query == "Breaking News"{
+            urlString = "\(BASE_URL)/top-headlines?country=us&pageSize=15&page=\(page)&apiKey=\(API_KEY)"
+        }else{
+            urlString = "\(BASE_URL)/everything?q=\(query)&pageSize=15&page=\(page)&apiKey=\(API_KEY)"
+        }
         print("URL for API:", urlString)
         
         guard let url = URL(string: urlString) else { return }

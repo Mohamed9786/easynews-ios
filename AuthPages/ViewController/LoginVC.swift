@@ -26,6 +26,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         password.delegate = self
         email.returnKeyType = .done
         password.returnKeyType = .done
+        navigationController?.navigationBar.barStyle = .black
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     @objc func dismissKeyboard() {
@@ -126,6 +131,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         email.resignFirstResponder()
         password.resignFirstResponder()
         return true
+    }
+    @IBAction func navToForgotVC(_ sender: Any) {
+        let sb = UIStoryboard(name: "Authentication", bundle: nil)
+        if let vc = sb.instantiateViewController(withIdentifier: "ForgotVC") as? ForgotVC{
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
     }
 }
 

@@ -22,10 +22,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if user.session{
             let newsVC = newssb.instantiateViewController(withIdentifier: "NewsVC")
             let vc = UINavigationController(rootViewController: newsVC)
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            vc.navigationBar.standardAppearance = appearance
+            vc.navigationBar.scrollEdgeAppearance = appearance
+            vc.navigationBar.barStyle = .black
             window.rootViewController = vc
         } else {
             let loginVC = authsb.instantiateViewController(withIdentifier: "LoginVC")
             let vc = UINavigationController(rootViewController: loginVC)
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            vc.navigationBar.standardAppearance = appearance
+            vc.navigationBar.scrollEdgeAppearance = appearance
+            vc.navigationBar.barStyle = .black
             window.rootViewController = vc
         }
         

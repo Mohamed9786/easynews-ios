@@ -39,7 +39,7 @@ class ProfileVC: UIViewController {
             print(signOutError)
         }*/
     }
-    private func navigateToLogin() {
+    func navigateToLogin() {
             let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
             guard let vc = storyboard.instantiateViewController(
                 withIdentifier: "LoginVC"
